@@ -6,7 +6,8 @@ $url = 'http://webservices.hktv.com.hk/account/token';
 $ki = '12';
 $ts = date(U);
 $s = generateSignature('account/token',$ts,$ki.'0');
-$data = array("muid" => "0",
+$data = array(
+	"muid" => "0",
 	"ki" => $ki,
 	"ts" => $ts,
 	"s"=> $s
@@ -14,11 +15,11 @@ $data = array("muid" => "0",
 
 // use key 'http' even if you send the request to https://...
 $options = array(
-    'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data),
-    ),
+	'http' => array(
+		'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+		'method'  => 'POST',
+		'content' => http_build_query($data),
+	),
 );
 $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
@@ -54,16 +55,16 @@ $data2 = array(
 	"s"=> $s2
 );
 $options2 = array(
-    'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data2),
-    ),
+	'http' => array(
+		'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+		'method'  => 'POST',
+		'content' => http_build_query($data2),
+	),
 );
 $context2  = stream_context_create($options2);
 $result2 = file_get_contents($url2, false, $context2);
 $surl_pos_s = strpos($result2,'http',1);
 $surl_pos_e = strpos($result2,'"',$surl_pos_s);
 $surl = substr($result2,$surl_pos_s,$surl_pos_e-strlen($result2));
-header("Location: $surl"); 
+header("Location: $surl");
 ?>
