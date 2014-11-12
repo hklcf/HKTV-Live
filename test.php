@@ -6,5 +6,5 @@ $ott_token = $ott_token_result['token'];
 $ott_expiry_date = $ott_token_result['expiry_date'];
 $playlist_json = "https://ott-www.hktvmall.com/api/playlist/request?uid={$ott_uid}&vid=1&t={$ott_token}&ppos=0&_={$ott_expiry_date}";
 $playlist_result = json_decode(file_get_contents($playlist_json), true);
-header("Location: $playlist_result['m3u8']");
+header("Location: {$playlist_result['m3u8']}");
 ?>
