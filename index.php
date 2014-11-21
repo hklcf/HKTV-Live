@@ -1,4 +1,7 @@
 <?php
+$username = 'hktv.test.01@gmail.com';
+$password = 'test1234';
+
 $ott_token_json = 'https://www.hktvmall.com/ott/token';
 $ott_token_result = json_decode(file_get_contents($ott_token_json), true);
 $ott_uid = $ott_token_result['user_id'];
