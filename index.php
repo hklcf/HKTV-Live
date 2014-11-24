@@ -1,6 +1,17 @@
 <?php
-$username = 'hktv.test.01@gmail.com';
-$password = 'test1234';
+$username = 'osm01288@soisz.com';
+$password = 'q1w2e3r4';
+
+/* <-- Login test start -->
+$csrf_token_url = file_get_contents('https://www.hktvmall.com/hktv/zh/login', true);
+$csrf_token_s = strpos($csrf_token_url, 'CSRFToken');
+$csrf_token_e = strpos($csrf_token_url, '"', $csrf_token_s + 18);
+$csrf_token = substr($csrf_token_url, $csrf_token_s + 18, $csrf_token_e - strlen($csrf_token_url));
+$login_data = http_build_query(array('j_username' => $username, 'j_password' => $password, '_spring_security_remember_me' => 'true', 'CSRFToken' => $csrf_token));
+$login_opts = array('http' => array('method' => 'POST', 'header' => 'Content-type: application/x-www-form-urlencoded\r\n'.'Origin: https://www.hktvmall.com\r\n'.'Referer: https://www.hktvmall.com/hktv/zh/login', 'content' => $login_data));
+$login_context = stream_context_create($login_opts);
+$login_result = file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', false, $login_context);
+<-- Login test end --> */
 
 $ott_token_json = 'https://www.hktvmall.com/ott/token';
 $ott_token_result = json_decode(file_get_contents($ott_token_json), true);
