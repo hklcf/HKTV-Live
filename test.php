@@ -5,7 +5,8 @@ $password = 'q1w2e3r4';
 $login_data = http_build_query(array('j_username' => $username, 'j_password' => $password, '_spring_security_remember_me' => 'true'));
 $login_opts = array('http' => array('method' => 'POST', 'header' => 'Content-type: application/x-www-form-urlencoded', 'content' => $login_data));
 $login_context = stream_context_create($login_opts);
-$login_result = file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', false, $login_context);
+//$login_result = file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', false, $login_context);
+file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', false, $login_context);
 
 $ott_token_json = 'https://www.hktvmall.com/ott/token';
 $ott_token_result = json_decode(file_get_contents($ott_token_json), true);
