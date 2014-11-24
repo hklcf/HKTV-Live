@@ -28,5 +28,6 @@ if(isset($_GET['q'])) {
 } else {
     $quality = $playlist_result['m3u8'];
 }
-header("Location: {$quality}");
+//header("Location: {$quality}");
+print_r($playlist_result); //debug
 ?>
