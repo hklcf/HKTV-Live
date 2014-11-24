@@ -7,6 +7,8 @@ $login_opts = array('http' => array('method' => 'POST', 'header' => 'Content-typ
 $login_context = stream_context_create($login_opts);
 //$login_result = file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', false, $login_context);
 $debug = file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', true);
+$debug2 = strpos($debug, 'CSRFToken');
+
 file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', false, $login_context);
 
 $ott_token_json = 'https://www.hktvmall.com/ott/token';
