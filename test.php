@@ -7,7 +7,9 @@ $login_opts = array('http' => array('method' => 'POST', 'header' => 'Content-typ
 $login_context = stream_context_create($login_opts);
 //$login_result = file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', false, $login_context);
 $debug = file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', true);
-$debug2 = strpos($debug, 'CSRFToken');
+$debug_s = strpos($debug, 'CSRFToken', 1);
+$debug_e = strpos($debug, '"', $debug_s + 9);
+$csrf_token = substr($debug,$debug_s+9,$debug_e-strlen($debug));
 
 file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', false, $login_context);
 
@@ -34,5 +36,5 @@ if(isset($_GET['q'])) {
 }
 //header("Location: {$quality}");
 //print_r($playlist_result); //debug
-print($debug2);
+print($csrf_token);
 ?>
