@@ -34,5 +34,5 @@ if(isset($_GET['q'])) {
 }
 //header("Location: {$quality}");
 //print_r($playlist_result); //debug
-print($debug2);
+print($debug2);//
 ?>
