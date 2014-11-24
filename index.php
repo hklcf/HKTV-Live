@@ -12,6 +12,7 @@ curl_exec($login_ch);
 $login_ch = curl_init();
 curl_setopt($login_ch, CURLOPT_URL, 'https://www.hktvmall.com/ott/token');
 curl_setopt($login_ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($login_ch, CURLOPT_HEADER, false);
 curl_setopt($login_ch, CURLOPT_COOKIEFILE, $login_cookie);
 $ott_token_json = curl_exec($login_ch);
 curl_close($login_ch);
