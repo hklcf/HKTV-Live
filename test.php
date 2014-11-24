@@ -6,7 +6,8 @@ $login_data = http_build_query(array('j_username' => $username, 'j_password' => 
 $login_opts = array('http' => array('method' => 'POST', 'header' => 'Content-type: application/x-www-form-urlencoded', 'content' => $login_data));
 $login_context = stream_context_create($login_opts);
 //$login_result = file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', false, $login_context);
-$debug = file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', true);
+//$debug = file_get_contents('https://www.hktvmall.com/hktv/zh/j_spring_security_check', true);
+$debug = file_get_contents('https://www.hktvmall.com/hktv/zh/login', true);
 $debug_s = strpos($debug, 'CSRFToken', 1);
 $debug_e = strpos($debug, '"', $debug_s + 9);
 $csrf_token = substr($debug,$debug_s+9,$debug_e-strlen($debug));
