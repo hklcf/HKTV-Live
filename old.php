@@ -1,5 +1,6 @@
 <?php
 function generateSignature($file, $time, $qsv) {
+	test();
 	return md5($file.$qsv.'43e814b31f8764756672c1cd1217d775'.$time);
 }
 $url = 'http://webservices.hktv.com.hk/account/token';
