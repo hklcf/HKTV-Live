@@ -1,16 +1,16 @@
 <?php
 function generateSignature($file, $time, $qsv) {
-	return md5($file.$qsv.'43e814b31f8764756672c1cd1217d775'.$time);
+return md5($file.$qsv.'43e814b31f8764756672c1cd1217d775'.$time);
 }
 $url = 'http://webservices.hktv.com.hk/account/token';
 $ki = '12';
 $ts = date(U);
 $s = generateSignature('account/token',$ts,$ki.'0');
 $data = array(
-	"muid" => "0",
-	"ki" => $ki,
-	"ts" => $ts,
-	"s"=> $s
+"muid" => "0",
+"ki" => $ki,
+"ts" => $ts,
+"s"=> $s
 );
 // use key 'http' even if you send the request to https://...
 $options = array(
