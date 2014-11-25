@@ -39,9 +39,9 @@ class Browser {
     public function get($url) {
         $opts = array(
             'http' => array(
-            'method' => 'GET',
-            'header' => "Accept-language: en\r\n" .
-                        $this->request_cookies
+                'method' => 'GET',
+                'header' => "Accept-language: en\r\n".
+                            $this->request_cookies
             )
         );
         $context = stream_context_create($opts);
@@ -53,15 +53,15 @@ class Browser {
     public function post($url, $post_data) {
         $post_content = array();
         foreach ($post_data as $key => $value) {
-            $post_content[] = $key .'='.$value;
+            $post_content[] = $key.'='.$value;
         }
 
         $opts = array(
             'http' => array(
-            'method' => 'GET',
-            'header' => "Content-type: application/x-www-form-urlencoded\r\n" .
-                        $this->request_cookies,
-            'content' => join('&', $post_content),
+                'method' => 'GET',
+                'header' => "Content-type: application/x-www-form-urlencoded\r\n".
+                            $this->request_cookies,
+                'content' => join('&', $post_content)
             )
         );
         $context = stream_context_create($opts);
