@@ -38,6 +38,7 @@ $mxres = '1920'; // maximum screen dimension
 $net = 'fixed'; // 3G/4G/fixed/wifi
 $s2 = generateSignature('playlist/request',$ts,$d.$ki.$mdl.$mf.$mxres.$net.$os.$got_token.$udid.$uid.$vid);
 
+//$url2 = 'http://webservices.hktv.com.hk/playlist/request';
 $url2 = 'http://ott-www.hktvmall.com/api/playlist/request';
 $data2 = array(
 	"d" => $d,
