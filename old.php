@@ -17,7 +17,7 @@ $options = array(
     'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
         'method'  => 'POST',
-        'content' => http_build_query($data),
+        'content' => http_build_query($data)
     ),
 );
 $context  = stream_context_create($options);
@@ -56,7 +56,7 @@ $options2 = array(
     'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
         'method'  => 'POST',
-        'content' => http_build_query($data2),
+        'content' => http_build_query($data2)
     ),
 );
 $context2  = stream_context_create($options2);
