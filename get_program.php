@@ -6,8 +6,6 @@ foreach($lists_json['videos'] as $program => $program_value) {
     //print_r($program_value['child_nodes']);
     foreach($program_value['child_nodes'] as $key => $key_value) {
         //print_r($key_value['title']);
-        print_r($program_value['child_nodes'][$key]);
-        echo "<br>";
         print_r($key_value);
     }
 }
