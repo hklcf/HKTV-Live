@@ -3,9 +3,7 @@ $url = 'http://live.eservice-hk.net/hktv?vid=';
 $lists_page = $_GET['page'] ? $_GET['page'] : '0';
 $lists_ofs = $lists_page * '6';
 $lists_json = json_decode(file_get_contents("https://ott-www.hktvmall.com/api/lists/getProgram?lim=6&ofs={$lists_ofs}"), true);
-echo '點播';
 foreach($lists_json['videos'] as $program_x => $program_x_value) {
-    echo "<br>";
     foreach($program_x_value['child_nodes'] as $program_y => $program_y_value) {
         echo $program_y_value['title'];
         echo "<br>";
@@ -14,5 +12,6 @@ foreach($lists_json['videos'] as $program_x => $program_x_value) {
             echo "<br>";
         }
     }
+    echo "<br>";
 }
 ?>
