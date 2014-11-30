@@ -30,7 +30,7 @@ if($lists_page <= $lists_total_page) {
         }
         echo "<br>";
     }
-    echo "Page {$lists_page} of {$lists_total_page}"; // page
+    echo "Page {$lists_page} of {$lists_total_page}";
 } else {
     echo "Page not found";
 }
