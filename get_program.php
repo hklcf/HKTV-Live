@@ -1,4 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>HKTV 免登入睇點播</title>
+</head>
+
+<body>
 <?php
 $url = 'http://live.eservice-hk.net/hktv?vid=';
 $lists_page = $_GET['page'] ? $_GET['page'] : '1';
@@ -22,3 +30,6 @@ foreach($lists_json['videos'] as $program_x => $program_x_value) {
 }
 //echo ceil($lists_json['total_videos']/$lists_lim); // page
 ?>
+</body>
+
+</html>
