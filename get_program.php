@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <?php
 $url = 'http://live.eservice-hk.net/hktv?vid=';
 $lists_page = $_GET['page'] ? $_GET['page'] : '1';
