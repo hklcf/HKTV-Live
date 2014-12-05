@@ -1,6 +1,8 @@
 <?php
 $username = 'osm01288@soisz.com';
 $password = 'q1w2e3r4';
+//lyu33964@soisz.com q1w2e3r4
+//$username = array();
 $login_ch = curl_init();
 $login_cookie = 'cookie.data';
 $login_data = http_build_query(array('j_username' => $username, 'j_password' => $password, '_spring_security_remember_me' => 'true'));
