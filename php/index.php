@@ -1,7 +1,7 @@
 <?php
 $account = mt_rand(0, 4);
-$username = array('osm01288@soisz.com', 'lyu33964@soisz.com', 'rvp89615@soisz.com', 'swk41652@soisz.com', 'whc27702@soisz.com');
-$password = array('q1w2e3r4', 'q1w2e3r4', 'q1w2e3r4', 'q1w2e3r4', 'q1w2e3r4');
+$username = array('osm01288@soisz.com', 'lyu33964@soisz.com', 'rvp89615@soisz.com', 'swk41652@soisz.com', 'whc27702@soisz.com', 'b3552886@trbvm.com');
+$password = array('q1w2e3r4', 'q1w2e3r4', 'q1w2e3r4', 'q1w2e3r4', 'q1w2e3r4', 'q1w2e3r4');
 $login_ch = curl_init();
 $login_cookie = 'cookie.data';
 $login_data = http_build_query(array('j_username' => $username[$account], 'j_password' => $password[$account], '_spring_security_remember_me' => 'true'));
