@@ -30,6 +30,7 @@ if($lists_page <= $lists_total_page) {
         echo "<br>";
         echo "<img src='{$program_x_value['thumbnail']}' alt='{$program_x_value['title']}'>";
         echo "<br>";
+        rsort($program_x_value['child_nodes']);
         foreach($program_x_value['child_nodes'] as $program_y => $program_y_value) {
             echo "<span>{$program_y_value['title']}</span>";
             echo "<br>";
