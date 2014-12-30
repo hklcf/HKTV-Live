@@ -44,12 +44,12 @@ if($lists_page <= $lists_total_page) {
     }
     if($lists_page > '1') {
         $lists_pervious_page = $lists_page - '1';
-        echo "<a href='?page={$lists_pervious_page}'><&nbsp</a>";
+        echo "<a href='?page={$lists_pervious_page}'><&nbsp;</a>";
     }
     echo "Page {$lists_page} of {$lists_total_page}";
     if($lists_page < $lists_total_page) {
         $lists_next_page = $lists_page + '1';
-        echo "<a href='?page={$lists_next_page}'>&nbsp></a>";
+        echo "<a href='?page={$lists_next_page}'>&nbsp;></a>";
     }
 } else {
     echo "Page not found";
