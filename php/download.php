@@ -6,7 +6,7 @@ if(isset($_GET['vid']) && isset($_GET['name'])) {
     $content .= 'ffmpeg -i "'."{$url}{$_GET['vid']}".'" -c copy "'."{$_GET['name']}".'.ts"';
     header('Content-Description: File Transfer');
     header('Content-Type: application/octet-stream; charset=UTF-8');
-    header('Content-Disposition: attachment; filename='.$program_z_value['title'].'.bat');
+    header('Content-Disposition: attachment; filename='.$_GET['name'].'.bat');
     header('Expires: 0');
     header('Cache-Control: must-revalidate');
     header('Pragma: public');
