@@ -1,7 +1,7 @@
 <?php
 $url = 'http://live.eservice-hk.net/hktv?vid=';
 $name = urldecode($_GET['name']);
-if(isset($_GET['vid']) && isset($name)) {
+if(isset($_GET['vid']) && isset($_GET['name'])) {
     $content = "@echo off\r\n";
     $content .= "chcp 65001\r\n";
     $content .= "title 正在下載 $name\r\n";
