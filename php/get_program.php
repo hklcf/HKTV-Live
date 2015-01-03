@@ -37,6 +37,7 @@ if($lists_page <= $lists_total_page) {
             sort($program_y_value['child_nodes']);
             foreach($program_y_value['child_nodes'] as $program_z => $program_z_value) {
                 echo "<a href='{$url}{$program_z_value['video_id']}'>{$program_z_value['title']}</a>";
+                echo "<a href='download.php?vid={$program_z_value['video_id']}'>Download</a>";
                 echo "<br>";
             }
         }
