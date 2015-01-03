@@ -33,14 +33,12 @@ if($lists_page <= $lists_total_page) {
         rsort($program_x_value['child_nodes']);
         foreach($program_x_value['child_nodes'] as $program_y => $program_y_value) {
             echo "<span>{$program_y_value['title']}</span>";
-            echo " | ";
-            //echo "<a href='download.php?vid={$program_y_value['video_id']}&section=&name=".urlencode($program_z_value['title'])."'>Download</a>";
             echo "<br>";
             sort($program_y_value['child_nodes']);
             foreach($program_y_value['child_nodes'] as $program_z => $program_z_value) {
                 echo "<a href='{$url}{$program_z_value['video_id']}'>{$program_z_value['title']}</a>";
-                //echo " | ";
-                //echo "<a href='download.php?vid={$program_z_value['video_id']}&name=".urlencode($program_z_value['title'])."'>Download</a>";
+                echo " | ";
+                echo "<a href='download.php?vid={$program_z_value['video_id']}&name=".urlencode($program_z_value['title'])."'>Download</a>";
                 echo "<br>";
             }
         }
