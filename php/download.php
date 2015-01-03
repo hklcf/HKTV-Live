@@ -3,8 +3,10 @@ $url = 'http://live.eservice-hk.net/hktv?vid=';
 $name = urldecode($_GET['name']);
 if(isset($_GET['vid']) && isset($name)) {
     $content = "@echo off\r\n";
+    $content .= "chcp 65001\r\n";
     $content .= "title 正在下載 $name\r\n";
     $content .= 'ffmpeg -i "'."{$url}{$_GET['vid']}".'" -c copy "'."$name".'.ts"';
+    $content .= "chcp 950\r\n";
     header('Content-Description: File Transfer');
     header('Content-Type: application/octet-stream');
     header('Content-Disposition: attachment; filename='.$name.'.bat');
