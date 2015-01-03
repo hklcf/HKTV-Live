@@ -1,7 +1,7 @@
 <?php
 $url = 'http://live.eservice-hk.net/hktv?vid=';
-$name = urldecode($_GET['name']));
-if(isset($_GET['vid']) && isset($name))) {
+$name = urldecode($_GET['name']);
+if(isset($_GET['vid']) && isset($name)) {
     $content = "@echo off\r\n";
     $content .= "title 正在下載 $name\r\n";
     $content .= 'ffmpeg -i "'."{$url}{$_GET['vid']}".'" -c copy "'."$name".'.ts"';
