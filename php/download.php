@@ -19,7 +19,7 @@ if($lists_page <= $lists_total_page) {
         $content .= "title 正在下載 {$program_z_value['title']}\r\n";
         $content .= 'ffmpeg -i '."{$url}{$program_z_value['video_id']}".' -c copy '."{$program_z_value['title']}".'.ts"';
         header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
+        header('Content-Type: application/octet-stream; charset=UTF-8');
         header('Content-Disposition: attachment; filename='.$program_z_value['title'].'.bat');
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
