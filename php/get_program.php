@@ -40,7 +40,14 @@ if($lists_page <= $lists_total_page) {
                 echo " | ";
                 echo "<a href='download.php?vid={$program_z_value['video_id']}&name=".urlencode($program_z_value['title'])."'>Download</a>";
                 echo "<br>";
+                $content .= 'ffmpeg -i "'."{$url}{$program_z_value['video_id']}".'" -c copy "'."{$program_z_value['title']}".'.ts"'."\r\n";
+				$section .= '"'.$program_z_value['title'].'.ts"+';
             }
+            $content .= 'copy /b '."$section".'"" "'."{$program_y_value['title']}".'.ts"'."\r\n";
+			$content .= 'ffmpeg -i "'."{$program_y_value['title']}".'.ts" -c copy -bsf:a aac_adtstoasc "'."{$program_y_value['title']}".'.mp4"'."\r\n";
+			$content .= 'del "'."{$program_y_value['title']}".'.ts';
+			echo "<a href='download2.php?name=".urlencode($program_y_value['title'])."&content=".urlencode($content)."'>Download</a>";
+			echo "<br>";
         }
         echo "<br>";
     }
