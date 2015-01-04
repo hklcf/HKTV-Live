@@ -26,15 +26,15 @@ $lists_json = json_decode(file_get_contents("https://ott-www.hktvmall.com/api/li
 $lists_total_page = ceil($lists_json['total_videos']/$lists_lim);
 if($lists_page <= $lists_total_page) {
     foreach($lists_json['videos'] as $program_x => $program_x_value) {
+        rsort($program_x_value['child_nodes']);
         echo "<h1>{$program_x_value['title']}</h1>";
         echo "<br>";
         echo "<img src='{$program_x_value['thumbnail']}' alt='{$program_x_value['title']}'>";
         echo "<br>";
-        rsort($program_x_value['child_nodes']);
         foreach($program_x_value['child_nodes'] as $program_y => $program_y_value) {
+            sort($program_y_value['child_nodes']);
             echo "<span>{$program_y_value['title']}</span>";
             echo "<br>";
-            sort($program_y_value['child_nodes']);
             foreach($program_y_value['child_nodes'] as $program_z => $program_z_value) {
                 echo "<a href='{$url}{$program_z_value['video_id']}'>{$program_z_value['title']}</a>";
                 echo " | ";
