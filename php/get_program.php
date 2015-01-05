@@ -39,8 +39,6 @@ if($lists_page <= $lists_total_page) {
             echo "<br>";
             foreach($program_y_value['child_nodes'] as $program_z => $program_z_value) {
                 echo "<a href='{$url}{$program_z_value['video_id']}'>{$program_z_value['title']}</a>";
-                echo " | ";
-                echo "";
                 echo "<br>";
             }
         }
