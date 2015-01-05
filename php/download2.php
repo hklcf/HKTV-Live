@@ -13,13 +13,9 @@ foreach($lists_json['videos'] as $program_x => $program_x_value) {
             echo "chcp 65001\r\n";
             echo "title {$program_y_value['title']}\r\n";
             foreach($program_y_value['child_nodes'] as $program_z => $program_z_value) {
-                echo "<a href='{$url}{$program_z_value['video_id']}'>{$program_z_value['title']}</a>";
-                echo " | ";
-                echo "<a href='download.php?vid={$program_z_value['video_id']}&name=".urlencode($program_z_value['title'])."'>Download</a>";
-                echo "<br>";
+                echo 'ffmpeg -i "'."{$url}{$program_z_value['video_id']}".'" -c copy "'."{$program_z_value['title']}".'.ts"';
             }
         }
     }
-    echo "<br>";
 }
 ?>
