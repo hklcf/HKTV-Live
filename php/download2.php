@@ -9,6 +9,9 @@ foreach($lists_json['videos'] as $program_x => $program_x_value) {
     foreach($program_x_value['child_nodes'] as $program_y => $program_y_value) {
         sort($program_y_value['child_nodes']);
         if($program_y_value['video_id'] == $_GET['vid']) {
+            echo "@echo off\r\n";
+            echo "chcp 65001\r\n";
+            echo "title {$program_y_value['title']}\r\n";
             foreach($program_y_value['child_nodes'] as $program_z => $program_z_value) {
                 echo "<a href='{$url}{$program_z_value['video_id']}'>{$program_z_value['title']}</a>";
                 echo " | ";
