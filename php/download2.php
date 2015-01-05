@@ -14,14 +14,14 @@ foreach($lists_json['videos'] as $program_x => $program_x_value) {
             $content .= "title {$program_y_value['title']}\r\n";
             foreach($program_y_value['child_nodes'] as $program_z => $program_z_value) {
                 $section .= '"'.$program_z_value['title'].'.ts"+';
-                $content .= 'ffmpeg -i "'.{$url}{$program_z_value['video_id']}.'" -c copy "'.{$program_z_value['title']}.'.ts"'."\r\n";
+                $content .= 'ffmpeg -i "'."{$url}{$program_z_value['video_id']}".'" -c copy "'."{$program_z_value['title']}".'.ts"'."\r\n";
             }
             $content .= 'copy /b '."$section".'"" "'."{$program_y_value['title']}".'.ts"'."\r\n";
             $content .= 'ffmpeg -i "'."{$program_y_value['title']}".'.ts" -c copy -bsf:a aac_adtstoasc "'."{$program_y_value['title']}".'.mp4"'."\r\n";
             $content .= 'del "'."{$program_y_value['title']}".'.ts"';
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename='.{$program_y_value['title']}.'.bat');
+            header('Content-Disposition: attachment; filename='."{$program_y_value['title']}".'.bat');
             header('Expires: 0');
             header('Cache-Control: must-revalidate');
             header('Pragma: public');
