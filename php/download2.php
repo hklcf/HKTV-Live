@@ -17,8 +17,6 @@ foreach($lists_json['videos'] as $program_x => $program_x_value) {
                 echo 'ffmpeg -i "'."{$url}{$program_z_value['video_id']}".'" -c copy "'."{$program_z_value['title']}".'.ts"'."\r\n";
             }
             echo 'copy /b '."$section".'"" '."{$program_y_value['title']}".'.ts'."\r\n";
-        } else {
-            echo 'Download Error!';
         }
     }
 }
