@@ -9,16 +9,24 @@ foreach($lists_json['videos'] as $program_x => $program_x_value) {
     foreach($program_x_value['child_nodes'] as $program_y => $program_y_value) {
         sort($program_y_value['child_nodes']);
         if($program_y_value['video_id'] == $_GET['vid']) {
-            echo "@echo off\r\n";
-            echo "chcp 65001\r\n";
-            echo "title {$program_y_value['title']}\r\n";
+            $content = "@echo off\r\n";
+            $content .= "chcp 65001\r\n";
+            $content .= "title {$program_y_value['title']}\r\n";
             foreach($program_y_value['child_nodes'] as $program_z => $program_z_value) {
                 $section .= '"'.$program_z_value['title'].'.ts"+';
-                echo 'ffmpeg -i "'."{$url}{$program_z_value['video_id']}".'" -c copy "'."{$program_z_value['title']}".'.ts"'."\r\n";
+                $content .= 'ffmpeg -i "'.{$url}{$program_z_value['video_id']}.'" -c copy "'.{$program_z_value['title']}.'.ts"'."\r\n";
             }
-            echo 'copy /b '."$section".'"" "'."{$program_y_value['title']}".'.ts"'."\r\n";
-            echo 'ffmpeg -i "'."{$program_y_value['title']}".'.ts" -c copy -bsf:a aac_adtstoasc "'."{$program_y_value['title']}".'.mp4"'."\r\n";
-            echo 'del "'."{$program_y_value['title']}".'.ts"';
+            $content .= 'copy /b '."$section".'"" "'."{$program_y_value['title']}".'.ts"'."\r\n";
+            $content .= 'ffmpeg -i "'."{$program_y_value['title']}".'.ts" -c copy -bsf:a aac_adtstoasc "'."{$program_y_value['title']}".'.mp4"'."\r\n";
+            $content .= 'del "'."{$program_y_value['title']}".'.ts"';
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename='.{$program_y_value['title']}.'.bat');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($content));
+            echo $content;
         }
     }
 }
