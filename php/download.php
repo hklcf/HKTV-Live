@@ -1,5 +1,5 @@
 <?php
-$url = 'http://live.eservice-hk.net/hktv?vid=';
+$url = 'http://live.eservice-hk.net/hktv/';
 $lists_page = $_GET['page'] ? $_GET['page'] : '1';
 $lists_lim = $_GET['lim'] ? $_GET['lim'] : '6';
 $lists_ofs = $lists_page * $lists_lim - $lists_lim;
@@ -14,7 +14,7 @@ foreach($lists_json['videos'] as $program_x => $program_x_value) {
             $content .= "title {$program_y_value['title']}\r\n";
             foreach($program_y_value['child_nodes'] as $program_z => $program_z_value) {
                 $section .= '"'.$program_z_value['title'].'.ts"+';
-                $content .= 'ffmpeg -i "'."{$url}{$program_z_value['video_id']}".'" -c copy "'."{$program_z_value['title']}".'.ts"'."\r\n";
+                $content .= 'ffmpeg -i "'."{$url}?vid={$program_z_value['video_id']}".'" -c copy "'."{$program_z_value['title']}".'.ts"'."\r\n";
             }
             $content .= 'copy /b '."$section".'"" "'."{$program_y_value['title']}".'.ts"'."\r\n";
             $content .= 'ffmpeg -i "'."{$program_y_value['title']}".'.ts" -c copy -bsf:a aac_adtstoasc "'."{$program_y_value['title']}".'.mp4"'."\r\n";
