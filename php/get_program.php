@@ -19,7 +19,6 @@
 <body>
 <?php
 $url = 'http://live.eservice-hk.net/hktv/';
-$adfly_api = 'http://api.adf.ly/api.php?key=52e3e71436ca2e4c736243d0d89ecb39&uid=71043&advert_type=int&domain=go.eservice-hk.net&url=';
 $lists_page = $_GET['page'] ? $_GET['page'] : '1';
 $lists_lim = $_GET['lim'] ? $_GET['lim'] : '6';
 $lists_ofs = $lists_page * $lists_lim - $lists_lim;
@@ -36,8 +35,7 @@ if($lists_page <= $lists_total_page) {
             sort($program_y_value['child_nodes']);
             echo "<span>{$program_y_value['title']}</span>";
             echo " | ";
-            $adfly_url = file_get_contents("{$adfly_api}{$url}download.php?vid={$program_y_value['video_id']}&page={$lists_page}");
-            echo "<a href='{$adfly_url}'>Download</a>";
+            echo "<a href='{$url}download.php?vid={$program_y_value['video_id']}&page={$lists_page}'>Download</a>";
             echo "<br>";
             foreach($program_y_value['child_nodes'] as $program_z => $program_z_value) {
                 echo "<a href='{$url}?vid={$program_z_value['video_id']}'>{$program_z_value['title']}</a>";
