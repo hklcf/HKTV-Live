@@ -33,7 +33,7 @@ if($_GET['download']) {
     }
 } else {
     $adfly_api = 'http://api.adf.ly/api.php?key=52e3e71436ca2e4c736243d0d89ecb39&uid=71043&advert_type=int&domain=go.eservice-hk.net&url=';
-    $adfly_url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'&download';
+    $adfly_url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'&download=1';
     $url = file_get_contents("{$adfly_api}{$adfly_url}");
     header("Location: $url");
 }
